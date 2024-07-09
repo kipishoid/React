@@ -1,20 +1,12 @@
 import React from 'react';
-import Message from './components/Message';
-<<<<<<< HEAD
-import CommentsList from './components/comments';
-=======
-import Comments from './components/comments';
->>>>>>> 095d588b75dba8e7e38461a1bceda7c5139bdfbc
+import TemperatureConverter from './components/TemperatureConverter';
+import TodoList from './components/TodoList';
 
 function App() {
   return (
     <div>
-      <Message text="Hello, World!" />
-<<<<<<< HEAD
-      <CommentsList />
-=======
-      <Comments />
->>>>>>> 095d588b75dba8e7e38461a1bceda7c5139bdfbc
+      <TodoList />
+      <TemperatureConverter />
     </div>
   );
 }
