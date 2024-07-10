@@ -1,13 +1,16 @@
 import React from 'react';
-import TemperatureConverter from './components/TemperatureConverter';
-import TodoList from './components/TodoList';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './Pages/HomePage';
+import About from './Pages/AboutPage';
 
 function App() {
   return (
-    <div>
-      <TodoList />
-      <TemperatureConverter />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
