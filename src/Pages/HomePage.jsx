@@ -1,13 +1,17 @@
 import React from 'react';
 import TemperatureConverter from '../components/TemperatureConverter';
-import { Link } from 'react-router-dom';
-import { Box, BottomNavigation } from '@mui/material';
+import {  Link as RouterLink } from 'react-router-dom';
+import { Box, BottomNavigation, BottomNavigationAction } from '@mui/material';
 function Home() {
     return (
         <>
             <Box mt={5}>
-                <BottomNavigation>
-                    <Link to="/about"> About </Link>
+                <BottomNavigation showLabels>
+                    <BottomNavigationAction                     
+                        label="About"
+                        component={RouterLink}
+                        to="/about"
+                    />
                 </BottomNavigation>
                 <TemperatureConverter />
             </Box>

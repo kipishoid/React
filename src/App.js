@@ -1,16 +1,43 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './Pages/HomePage';
-import About from './Pages/AboutPage';
+import { Provider, useSelector } from 'react-redux';
+import store from './store';
+import ThemeSwitcher from './components/ThemeSwitcher';
+import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+
+const RootContainer = styled('div')(({ theme }) => ({
+  minHeight: '100vh',
+  backgroundColor: theme.palette.background.default,
+  color: theme.palette.text.primary,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+}));
+
+const AppContent = () => {
+  const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
+
+  const theme = createTheme({
+    palette: {
+      mode: isDarkTheme ? 'dark' : 'light',
+    },
+  });
+
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <RootContainer>
+        <ThemeSwitcher />
+      </RootContainer>
+    </ThemeProvider>
+  );
+};
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <AppContent />
+    </Provider>
   );
 }
 

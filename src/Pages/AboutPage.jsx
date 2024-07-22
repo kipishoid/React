@@ -1,14 +1,18 @@
 import React from 'react';
 import TodoList from '../components/TodoList';
-import { Link } from 'react-router-dom';
-import { BottomNavigation, Box } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
+import { BottomNavigation, BottomNavigationAction, Box } from '@mui/material';
 
 function About() {
     return (
         <>
             <Box mt={5}>
-                <BottomNavigation>
-                    <Link to="/"> Home </Link>
+                <BottomNavigation showLabels>
+                    <BottomNavigationAction                     
+                        label="Home"
+                        component={RouterLink}
+                        to="/"
+                    />
                 </BottomNavigation>
                 <TodoList />
             </Box>
